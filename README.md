@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository hosts a suite of Bash scripts developed for processing diffusion-weighted MRI (dMRI) data and constructing structural connectomes using MRtrix3 and FSL. These tools are part of the NeurArchCon project, led by Claude Julien Bajada (claude.bajada@um.edu.mt). The scripts for the CFIN preprocessing pipeline are available upon request. All scripts are fully commented to ensure ease of replication and understanding
+This repository hosts a suite of Bash scripts developed for processing diffusion-weighted MRI (dMRI) data and constructing structural connectomes using MRtrix3 and FSL. These tools are part of the NeurArchCon project, led by Claude Julien Bajada (claude.bajada@um.edu.mt). The conversion from Desikan to Destrieux atlas was performed by Hao Chen. The scripts for the CFIN preprocessing pipeline are available upon request. All scripts are fully commented to ensure ease of replication and understanding
 
 ## Software requirements
 
@@ -20,7 +20,9 @@ The pipeline consists of six main scripts that should be run in the following or
 2. ``mrtrix_pipeline_step_2.sh``: Computes the group average response functions for white matter, gray matter, and CSF.
 3. ``mrtrix_pipeline_step_3.sh``: Implements multi-shell multi-tissue constrained spherical deconvolution (MSMT-CSD), normalizes the fiber orientation distributions (FODs) for WM, GM, and CSF, and performs tractography.
 4. ``mrtrix_pipeline_step_4_mu_coeff.sh``: Applies the SIFT2 method to reduce false-positive connections and generates metrics such as the mean streamline weight (-out_mu) and streamline coefficients (-out_coeffs), offering quantitative insights into the tractogram's composition and the filtering process's impact.
-5. ``gen_connectome_all.sh``: Convert structural connectomes of all participants from the Desikan to the Destriex atlas (it relies on the bash script ‘gen_connectome.sh’)
+5. ``mrtrix_pipeline_step_5_connectome_gen.sh``: Create structural connectomes using the Desikan parcelation.
+6. ``gen_connectome.sh`` and ``gen_connectome_all.sh``:Convert structural connectomes of all participants from the Desikan to the Destriex atlas.
+
 
 ## Demo
 
@@ -46,5 +48,5 @@ If you encounter issues, check the following:
 - Input data formats meet the expected specifications.
 - System resources (memory, CPU) are sufficient for processing.
 
-For further assistance, contact claude.bajada@um.edu.mt
+For further assistance, contact claude.bajada@um.edu.mt (steps 1-5) or Hao Chen (step 6)
 
